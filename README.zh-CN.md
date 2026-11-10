@@ -2,7 +2,7 @@
 
 [![tests](https://github.com/Calmgh/pdb-symbol-extract/actions/workflows/tests.yml/badge.svg)](https://github.com/Calmgh/pdb-symbol-extract/actions/workflows/tests.yml)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![python](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/)
+[![python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 
 用**纯 Python** 读 Windows PDB 符号表 —— 不需要 IDA、不需要 `llvm-pdbutil`、
 `cvdump`、`dumpbin`，不需要 DIA SDK，也不需要装 Visual Studio。
@@ -53,7 +53,7 @@ cd pdb-symbol-extract
 pip install -r requirements.txt   # 只有 capstone，只有反汇编需要
 ```
 
-Python 3.7+，无编译，无原生依赖。核心功能（容器、符号、类型）只用标准库。
+Python 3.8+，无编译，无原生依赖。核心功能（容器、符号、类型）只用标准库。
 
 ## 快速开始
 
