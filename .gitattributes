@@ -1,0 +1,10 @@
+# Normalise line endings: this is a cross-platform Python project.
+* text=auto eol=lf
+*.py text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.txt text eol=lf
+
+# Fixtures are generated; keep them binary if they are ever committed.
+*.pdb binary
+*.exe binary

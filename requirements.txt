@@ -1,0 +1,2 @@
+# Disassembly only. Everything else is standard library.
+capstone>=5.0

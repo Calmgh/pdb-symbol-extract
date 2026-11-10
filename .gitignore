@@ -1,0 +1,19 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# Test fixtures are generated, not committed
+tests/data/
+
+# Analysis output (symbol tables can be huge, and often say too much)
+*.tsv
+*_rpc.txt
+
+# Editors
+.vscode/
+.idea/
+*.swp

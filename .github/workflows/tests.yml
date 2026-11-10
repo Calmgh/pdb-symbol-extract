@@ -1,0 +1,40 @@
+name: tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.8", "3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install capstone
+        run: pip install capstone
+
+      - name: Run tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Smoke test the CLIs
+        shell: bash
+        run: |
+          python tests/make_fixture.py
+          python pdb_info.py tests/data/fixture.pdb
+          python pdb_symbols.py tests/data/fixture.pdb tests/data/fixture.exe out
+          python pdb_types.py tests/data/fixture.pdb types --outdir=.
+          python pdb_check.py tests/data/fixture.pdb tests/data/fixture.exe
+          python pdb_disasm.py tests/data/fixture.exe 0x1100 5 --sym=out.tsv
